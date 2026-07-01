@@ -1,34 +1,217 @@
-# Assistente Financeiro Inteligente (Concierge Bancario)
+# Concierge Bancário — Assistente Financeiro Inteligente
 
-Projeto final desenvolvido para a disciplina de Topicos Especiais, ministrada pelo Prof. Dr. Ivanovitch Silva.
+> Projeto final da disciplina **Tópicos Especiais em Redes**, ministrada pelo Prof. Dr. Ivanovitch Silva — PPGEEC/UFRN.
 
-Este repositorio contem a implementacao de um Assistente Financeiro Inteligente estruturado a partir de Sistemas Multi-Agentes e Large Language Models (LLMs). O sistema atua como um concierge bancario pro-ativo, projetado para transcender modelos tradicionais de perguntas e respostas (Q&A). O agente analisa transacoes em tempo real, detecta anomalias comportamentais e interage com o usuario para auxiliar em tomadas de decisao financeira estrategicas.
+Sistema de agente único com múltiplas skills que detecta fraudes em transações de cartão de crédito, interage com o portador para validação Human-in-the-Loop e explica decisões históricas, utilizando Google ADK e Gemini.
 
-## Arquitetura do Sistema
+---
 
-O fluxo de decisao do assistente foi arquitetado em quatro camadas interligadas:
+## Índice
 
-1. **Deteccao de Anomalias (Baseline e Regras):** O sistema estabelece um baseline comportamental baseado no historico de transacoes do usuario (ex: ultimos 30 a 90 dias). Durante a execucao, o agente avalia parametros granulares da transacao, como valor da compra, categoria do estabelecimento, localizacao geografica, tipo de terminal e a impressao digital do dispositivo (device fingerprint). Se uma transacao desvia do padrao (como um gasto significativamente acima da media daquela categoria), uma flag de seguranca e levantada.
-2. **Analise de Contexto (Agente Conversacional):** Ao detectar uma anomalia, o agente investiga o racional da compra interagindo diretamente com o usuario. O sistema procura classificar se a transacao e fruto de um planejamento, uma emergencia ou se requer reconsideracao estrategica.
-3. **Validacao Human-in-the-Loop:** O agente atua de forma consultiva e nao toma decisoes criticas isoladamente. Ele formula hipoteses e cenarios financeiros, exigindo que o usuario analise e valide as estrategias propostas, retroalimentando o sistema e treinando o grau de confianca (confidence score) para transacoes futuras.
-4. **Analise Financeira e Roteamento:** Apos a elucidacao do contexto, o agente analisa de forma paralela diversos fluxos de informacao (fluxo de caixa, custos de juros, restricoes legais e limites de credito) para sugerir a melhor modalidade de pagamento ou mitigacao de danos.
+- [Visão Geral](#visão-geral)
+- [Arquitetura](#arquitetura)
+- [Skills](#skills)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Perfis de Teste](#perfis-de-teste)
+- [Equipe](#equipe)
 
-## Modulos e Skills do Agente
+---
 
-O nucleo inteligente e composto por ferramentas modulares (Skills) que concedem capacidades especificas ao agente:
+## Visão Geral
 
-* **Avaliacao Comportamental (Fraud Detection):** Skill responsavel por cruzar os dados da transacao atual com o banco de dados simulado do usuario (ex: `assets/user_1.csv`). Identifica ocorrencias de violacao de velocidade (velocity violations), mudancas abruptas de canal e dimensionamento anomalos de ticket.
-* **Simulacao de Opcoes de Pagamento:** Calcula as melhores alternativas de composicao de pagamento (ex: uso hibrido de recursos em conta e parcelamento) visando a reducao de juros.
-* **Estimativa de Impacto Futuro:** Ferramenta focada em projetar como uma dada despesa e sua forma de pagamento afetarao a relacao divida/renda do usuario no longo prazo.
+O Concierge Bancário é um agente conversacional pro-ativo que vai além do modelo tradicional de Q&A. Em vez de apenas responder perguntas, ele:
 
-## Tecnologias e Ferramentas Utilizadas
+1. **Detecta anomalias** em tempo real comparando cada transação com o baseline comportamental do portador.
+2. **Interage com o usuário** (Human-in-the-Loop) quando uma transação é sinalizada, pedindo contexto antes de qualquer ação.
+3. **Explica e audita** decisões passadas quando o portador questiona uma cobrança.
 
-* **Google ADK (Agent Development Kit):** Framework base adotado para a orquestracao, registro e teste do agente e suas skills.
-* **Python:** Linguagem utilizada no desenvolvimento dos scripts locais de analise, simulacoes e integracao com bases de dados falsas (mock data).
-* **LLMs:** Modelos fundacionais encarregados da inferencia semantica, avaliacao de regras complexas e interacao natural com o usuario.
+A arquitetura segue o padrão **Harness**: um único agente central equipado com skills modulares (Skills + Memória + Protocolos), conforme descrito na literatura de sistemas agênticos.
 
-## Membros da Equipe
+---
 
-* Larissa Kelmer de Menezes Silva
-* Marilia Costa Muniz
-* Samuel Amico Fidelis
+## Arquitetura
+
+```
+Transação JSON / Pergunta do Usuário
+              ↓
+         [ Agent ]  ←──────────────────────────────────┐
+              │                                         │
+     ┌────────┴──────────┐                             │
+     ▼                   ▼                             │
+detectingfraud     explainpotentialfraud          analyzecontext
+(nova transação)   (disputa histórica)            (HITL pós-SUSPICIOUS)
+     │
+     ├─ CONSISTENT → encerra
+     └─ SUSPICIOUS → analyzecontext
+                          │
+               ┌──────────┼──────────┐
+               ▼          ▼          ▼
+           Autoriza    Bloqueia   Pede mais
+                       cartão     contexto
+```
+
+| Diagrama | Descrição |
+|---|---|
+| [Agent_Skill_Fraud.png](draw/Agent_Skill_Fraud.png) | Visão geral do harness (Agent + Skills/Memória/Protocolos) |
+| [Agent_Skill_Call.png](draw/Agent_Skill_Call.png) | Estrutura interna de uma skill (SKILL.md + assets + scripts + reference) |
+| [Transaction_Trigger.png](draw/Transaction_Trigger.png) | Roteamento por tipo de entrada (transação vs. pergunta do usuário) |
+| [Analyzecontext_Skill.png](draw/Analyzecontext_Skill.png) | Fluxo Human-in-the-Loop da skill `analyzecontext` |
+
+---
+
+## Skills
+
+| Skill | Trigger | Responsabilidade | Tool principal |
+|---|---|---|---|
+| `detectingfraud` | Payload JSON de transação recebido | Compara métricas da transação com o histórico do portador e emite veredito SUSPICIOUS / CONSISTENT | `get_user_behavioral_baseline` |
+| `analyzecontext` | Veredito SUSPICIOUS da `detectingfraud` | Pergunta ao portador se a transação foi planejada, emergência ou fraude; age conforme a resposta | `update_transaction_status` |
+| `explainpotentialfraud` | Pergunta retrospectiva do usuário | Busca a transação histórica, cruza com as regras e explica o veredito em linguagem natural; pode remover a entrada do banco se fraude confirmada | `get_transaction_from_db` |
+
+Cada skill é uma pasta independente contendo:
+
+```
+<skill>/
+├── SKILL.md          # instruções para o LLM (when to use, workflow, examples)
+├── assets/           # dados mock por usuário (CSV)
+├── references/       # regras de negócio (behavioral_rules.md)
+└── scripts/          # ferramentas Python registradas no agente
+```
+
+---
+
+## Pré-requisitos
+
+- Python 3.11+
+- Chave de API do Google Gemini (`GOOGLE_API_KEY`)
+
+---
+
+## Instalação
+
+```bash
+# 1. Clone o repositório
+git clone <url-do-repo>
+cd concier_agent
+
+# 2. Crie e ative o ambiente virtual
+python -m venv .venv
+
+# Windows
+.\.venv\Scripts\Activate.ps1
+
+# Linux/macOS
+source .venv/bin/activate
+
+# 3. Instale as dependências
+pip install -r requirements.txt
+
+# 4. Configure as variáveis de ambiente
+# Edite o arquivo .env com sua chave:
+# GOOGLE_API_KEY="sua-chave-aqui"
+# GOOGLE_GENAI_USE_VERTEXAI=FALSE
+```
+
+---
+
+## Uso
+
+```bash
+python agent-multiple-skills.py
+```
+
+O terminal aguarda input. **Pressione Enter duas vezes** para enviar (suporta JSON multilinha).
+
+### Exemplos de teste
+
+**Detectar fraude em transação nova** (deve retornar SUSPICIOUS e acionar `analyzecontext`):
+```
+Evaluate this transaction for fraud: {"transaction_id": "tx_alex_11_f", "cardholder_id": "user_1", "amount": 1299.00, "merchant": {"name": "Apple Store", "category": "ELECTRONICS"}, "location": {"city": "Miami", "country": "US", "terminal_type": "EMV_FALLBACK"}, "network": {"ip_address": "0.0.0.0", "vpn_detected": false, "proxy_detected": false}, "device": {"device_fingerprint": "none", "os": "none"}, "payment_details": {"cvv_validated": false, "emv_fallback": true}}
+```
+
+**Transação legítima** (deve retornar CONSISTENT sem acionar `analyzecontext`):
+```
+Evaluate this transaction for fraud: {"transaction_id": "tx_alex_01", "cardholder_id": "user_1", "amount": 14.99, "merchant": {"name": "Netflix Inc", "category": "STREAMING"}, "location": {"city": "Seattle", "country": "US", "terminal_type": "ONLINE"}, "network": {"ip_address": "67.180.20.44", "vpn_detected": false, "proxy_detected": false}, "device": {"device_fingerprint": "mac_safari_991", "os": "MacOS"}, "payment_details": {"cvv_validated": true, "emv_fallback": false}}
+```
+
+**Explicar transação histórica** (`explainpotentialfraud`):
+```
+Explain to me why my transaction_id = 'tx_alex_11_f' was considered fraud. I'm cardholder_id = 'user_1'.
+```
+
+---
+
+## Estrutura do Projeto
+
+```
+concier_agent/
+├── agent-multiple-skills.py        # ponto de entrada principal (CLI interativo)
+├── requirements.txt
+├── .env                            # GOOGLE_API_KEY (não versionar)
+│
+├── detectingfraud/                 # Skill 1 — detecção de anomalias
+│   ├── SKILL.md
+│   ├── assets/                     # histórico de transações por usuário
+│   │   ├── user_1.csv  (Alex — perfil digital)
+│   │   ├── user_2.csv  (Bob  — perfil físico/conservador)
+│   │   ├── user_3.csv  (Clara — perfil familiar)
+│   │   └── user_4.csv  (David — perfil de rotina)
+│   ├── references/
+│   │   └── behavioral_rules.md     # regras de velocity e anomalia de canal
+│   └── scripts/
+│       └── profile_db_tool.py      # get_user_behavioral_baseline()
+│
+├── analyzecontext/                 # Skill 2 — validação Human-in-the-Loop
+│   ├── SKILL.md
+│   └── scripts/
+│       └── context_analyzer.py     # update_transaction_status()
+│
+├── explainpotentialfraud/          # Skill 3 — auditoria e disputa
+│   ├── SKILL.md
+│   ├── assets/                     # mesmos CSVs (visão da skill de disputa)
+│   ├── references/
+│   │   └── behavioral_rules.md
+│   └── scripts/
+│       └── database_query_transaction.py  # get_transaction_from_db(), delete_transaction_from_db()
+│
+├── data/
+│   └── log_transactions.json       # payloads de teste (15 transações por usuário, 5 fraudulentas)
+│
+├── draw/                           # diagramas de arquitetura
+│   ├── Agent_Skill_Fraud.png
+│   ├── Agent_Skill_Call.png
+│   ├── Transaction_Trigger.png
+│   └── Analyzecontext_Skill.png
+│
+└── Agent_Pipeline.ipynb            # notebook de exploração e prototipagem
+```
+
+---
+
+## Perfis de Teste
+
+O arquivo `data/log_transactions.json` contém 4 perfis sintéticos, cada um com 10 transações legítimas e 5 fraudes de dificuldade crescente:
+
+| ID | Perfil | Estratégia de fraude |
+|---|---|---|
+| `user_1` | Alex — heavy e-commerce, multi-device | Credential stuffing + card testing (micro → spike) |
+| `user_2` | Bob — conservador, só ATM/POS em Omaha | Qualquer transação online ou internacional |
+| `user_3` | Clara — mãe de família, gastos previsíveis | Compras fora do paradigma familiar (gaming, viagens) |
+| `user_4` | David — rotina absoluta, Apple Pay exclusivo | Qualquer portal online sem tokenização NFC |
+
+---
+
+## Equipe
+
+| Nome | Papel |
+|---|---|
+| **Larissa Kelmer de Menezes Silva** | Skill `analyzecontext` (Human-in-the-Loop) |
+| **Marilia Costa Muniz** | Integração, testes e apresentação |
+| **Samuel Amico Fidelis** | Arquitetura do harness, skills `detectingfraud` e `explainpotentialfraud` |
+
+---
+
+> Disciplina: Tópicos Especiais em Redes — PPGEEC/UFRN
+> Orientador: Prof. Dr. Ivanovitch Silva
