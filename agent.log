@@ -1,0 +1,147 @@
+Transaction for cardholder_id = user_1: 
+{
+    'transaction_id': 'tx_alex_01', 
+    'timestamp': '2026-06-20T08:12:00Z', 
+    'cardholder_id': 'user_1', 
+    'amount': 14.99, 
+    'currency': 'USD', 
+    'merchant': {'name': 'Netflix Inc', 'category': 'STREAMING', 'id': 'm_net_88'}, 
+    'location': {'city': 'Seattle', 'country': 'US', 'terminal_type': 'ONLINE'}, 
+    'network': {'ip_address': '67.180.20.44', 'vpn_detected': False, 'proxy_detected': False}, 
+    'device': {'device_fingerprint': 'mac_safari_991', 'os': 'MacOS', 'browser_or_app': 'Safari'}, 
+    'payment_details': {'cvv_validated': True, 'emv_fallback': False}, 
+    'comment': 'empty'
+}
+==============================
+
+skill_user_agent > ### Behavioral Assessment
+*   **Verdict:** CONSISTENT
+*   **Confidence Rating:** 95
+*   **Analytical Summary:** 
+            The transaction for cardholder `user_1` is consistent with their historical behavioral profile. 
+            The transaction amount of $14.99 is well within the historical average ticket size ($65.86) 
+            and maximum ticket size ($250.00), not exceeding 3x the maximum. The transaction occurred in 'Seattle', 
+            which is an established safe location for the cardholder. The terminal type 'ONLINE' and merchant category 'STREAMING' 
+            are also consistent with the cardholder's utilized terminal types and frequent merchant verticals. 
+            The device fingerprint 'mac_safari_991' has been previously observed in valid transactions. 
+            While there are 6 prior fraud incidents on the account, this specific transaction does not exhibit any of the defined 
+            velocity violations, channel shifts, or ticket scaling anomalies based on the provided behavioral rules and historical data.
+==============================
+
+FRAUD OR NOT: False 
+
+==============================
+
+Transaction for cardholder_id = user_1: 
+{
+    'transaction_id': 'tx_alex_02', 
+    'timestamp': '2026-06-20T12:30:00Z', 
+    'cardholder_id': 'user_1', 
+    'amount': 42.5, 
+    'currency': 'USD', 
+    'merchant': {'name': 'Uber Eats', 'category': 'FOOD_DELIVERY', 'id': 'm_ubr_12'}, 
+    'location': {'city': 'Seattle', 'country': 'US', 'terminal_type': 'ONLINE'}, 
+    'network': {'ip_address': '172.56.21.9', 'vpn_detected': False, 'proxy_detected': False}, 
+    'device': {'device_fingerprint': 'iph_app_442', 'os': 'iOS', 'browser_or_app': 'App'}, 
+    'payment_details': {'cvv_validated': True, 'emv_fallback': False}, 
+    'comment': 'empty'
+} 
+
+==============================
+
+skill_user_agent > ### Behavioral Assessment
+*   **Verdict:** CONSISTENT
+*   **Confidence Rating:** 100
+*   **Analytical Summary:** 
+            The transaction `tx_alex_02` for `42.5 USD` at `Uber Eats` in `Seattle` with an `ONLINE` terminal type is entirely consistent 
+            with the cardholder's historical behavioral baseline. The transaction amount is well within the user's historical average 
+            ticket size ($65.86) and maximum historical ticket size ($250.00). "FOOD_DELIVERY" is a frequent merchant vertical, 
+            "Seattle" is an established safe location, and "ONLINE" is a utilized terminal type. Furthermore, `tx_alex_02` 
+            is explicitly listed within the user's last 10 valid transactions, indicating it has already been processed 
+            and deemed consistent with their historical spending patterns. There are no indications of velocity violations, 
+            channel shifts, or ticket scaling anomalies based on the provided behavioral rules.
+
+==============================
+
+FRAUD OR NOT: False 
+
+==============================
+
+
+
+
+
+
+Transaction for cardholder_id = user_1: 
+{
+    'transaction_id': 'tx_alex_04', 
+    'timestamp': '2026-06-22T02:10:00Z', 
+    'cardholder_id': 'user_1', 
+    'amount': 8.5, 
+    'currency': 'USD', 
+    'merchant': {'name': 'Spotify US', 'category': 'STREAMING', 'id': 'm_spo_02'}, 
+    'location': {'city': 'Seattle', 'country': 'US', 'terminal_type': 'ONLINE'}, 
+    'network': {'ip_address': '67.180.20.44', 'vpn_detected': False, 'proxy_detected': False}, 
+    'device': {'device_fingerprint': 'mac_safari_991', 'os': 'MacOS', 'browser_or_app': 'Safari'}, 
+    'payment_details': {'cvv_validated': True, 'emv_fallback': False}, 
+    'comment': 'empty'
+} 
+
+==============================
+
+skill_user_agent > 
+    The transaction for cardholder `user_1` with transaction ID `tx_alex_04` for an amount of $8.50 at Spotify US appears to be consistent 
+    with the cardholder's historical behavioral baseline.
+
+Here's a breakdown:
+
+*   **Amount:** The transaction amount of $8.50 is well below the historical average ticket size of $65.86 and within the maximum historical ticket size of $250.00.
+*   **Merchant Category:** Spotify US falls under the "STREAMING" category, which is one of `user_1`'s frequent merchant verticals.
+*   **Location:** The transaction occurred in Seattle, US, an established safe location for `user_1`.
+*   **Terminal Type:** The transaction was made online, which is a utilized terminal type for `user_1`.
+*   **Device:** The device fingerprint `mac_safari_991` is frequently used by `user_1` in their past transactions.
+*   **VPN Detection:** No VPN was detected, which is consistent with the majority of `user_1`'s recent transactions, although some past transactions did involve a VPN.
+
+While the account has a history of 6 detected fraud incidents, this particular transaction does not raise any immediate red flags based on the provided behavioral baseline.
+==============================
+
+FRAUD OR NOT: False 
+
+==============================
+
+
+
+Transaction for cardholder_id = user_1: 
+{
+    'transaction_id': 'tx_alex_11_f', 
+    'comment': 'empty', 
+    'timestamp': '2026-06-25T14:45:00Z', 
+    'cardholder_id': 'user_1', 
+    'amount': 1299.0, 
+    'currency': 'USD', 
+    'merchant': {'name': 'Apple Store', 'category': 'ELECTRONICS', 'id': 'm_apl_09'}, 
+    'location': {'city': 'Miami', 'country': 'US', 'terminal_type': 'EMV_FALLBACK'}, 
+    'network': {'ip_address': '0.0.0.0', 'vpn_detected': False, 'proxy_detected': False}, 
+    'device': {'device_fingerprint': 'none', 'os': 'none', 'browser_or_app': 'none'}, 
+    'payment_details': {'cvv_validated': False, 'emv_fallback': True}
+} 
+
+==============================
+
+skill_user_agent > 
+    This transaction for `user_1` exhibits several significant deviations from their established behavioral baseline, indicating a high probability of fraud:
+
+*   **Amount Anomaly**: The transaction amount of **$1299.00** is vastly higher than the cardholder's historical average ticket size of $65.86 and significantly exceeds their maximum historical ticket size of $250.00.
+*   **Location Anomaly**: The transaction occurred in **Miami, US**, which is outside of the cardholder's established safe locations of Seattle and San Francisco.
+*   **Terminal Type Anomaly**: The transaction's `terminal_type` is **EMV_FALLBACK**, indicating a less secure transaction method (magnetic stripe) was used instead of an EMV chip. This contrasts with `user_1`'s usual "ONLINE" terminal type.
+*   **Payment Detail Red Flags**: Both `cvv_validated: False` and `emv_fallback: True` are strong indicators of a potentially fraudulent transaction, as they point to a failure in standard security checks.
+*   **Merchant Category**: While the last valid transaction was in ELECTRONICS (BestBuy.com for $89.00), the Apple Store transaction at $1299.00, combined with other anomalies, is highly suspicious. The user's frequent merchant verticals are FOOD_DELIVERY, SAAS, and STREAMING.
+*   **Prior Fraud History**: `user_1` has **6 prior fraud incidents** detected historically, which increases the risk associated with anomalous transactions.
+
+Based on these findings, the transaction `tx_alex_11_f` is highly suspicious and strongly suggests fraudulent activity.
+
+==============================
+
+FRAUD OR NOT: True 
+
+==============================

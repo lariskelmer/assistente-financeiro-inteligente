@@ -1,0 +1,12 @@
+transaction_id,timestamp,amount,currency,merchant_name,merchant_category,location_city,location_country,terminal_type,vpn_detected,device_fingerprint,is_fraud
+tx_h_bob_01,2026-05-01T08:30:00Z,42.10,USD,Casey General Store,GAS_STATION,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_02,2026-05-05T11:00:00Z,100.00,USD,First National ATM,ATM,Omaha,US,ATM,false,none,false
+tx_h_bob_03,2026-05-10T14:20:00Z,15.50,USD,Omaha Diner,RESTAURANT,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_04,2026-05-12T09:15:00Z,48.00,USD,Casey General Store,GAS_STATION,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_05,2026-05-19T10:45:00Z,55.30,USD,Ace Hardware,HARDWARE,Omaha,US,POS_TAP,false,none,false
+tx_h_bob_06,2026-05-22T16:00:00Z,200.00,USD,First National ATM,ATM,Omaha,US,ATM,false,none,false
+tx_h_bob_07,2026-05-26T08:11:00Z,39.90,USD,Casey General Store,GAS_STATION,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_08,2026-05-29T13:00:00Z,112.00,USD,Menards,HARDWARE,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_09,2026-06-02T11:45:00Z,41.20,USD,Casey General Store,GAS_STATION,Omaha,US,POS_CHIP,false,none,false
+tx_h_bob_10,2026-06-08T15:30:00Z,31.00,USD,Ace Hardware,HARDWARE,Omaha,US,POS_TAP,false,none,false
+tx_h_bob_99,2026-06-11T22:15:00Z,899.99,USD,Target.com,E_COMMERCE,Minneapolis,US,ONLINE,false,win_edge_884,true

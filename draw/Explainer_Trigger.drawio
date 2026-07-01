@@ -1,0 +1,70 @@
+<mxfile host="Electron" modified="2026-06-30T10:34:46.563Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.2 Chrome/114.0.5735.289 Electron/25.9.4 Safari/537.36" etag="TheOAI7qjGFbrv1sg57m" version="22.1.2" type="device">
+  <diagram name="Page-1" id="xqqqOjXsUXyt7VHAUPaZ">
+    <mxGraphModel dx="1964" dy="706" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-1" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.json" vertex="1" parent="1">
+          <mxGeometry x="-45" y="140" width="70" height="75.8" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-2" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="260" as="sourcePoint" />
+            <mxPoint x="290" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;dashed=1;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="310" y="220" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-4" value="" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.agent;" vertex="1" parent="1">
+          <mxGeometry x="316" y="228" width="78" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-5" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Agent&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="316" y="320" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-6" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#DD344C;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.detective;" vertex="1" parent="1">
+          <mxGeometry x="590" y="97.8" width="81.1" height="81.1" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-7" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Fraud Detection &lt;br&gt;Skill&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="565.55" y="178.9" width="130" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-8" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="243.4" as="sourcePoint" />
+            <mxPoint x="540" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-9" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/general/Help_and_Support.svg;" vertex="1" parent="1">
+          <mxGeometry x="602.55" y="290" width="56.00000000000001" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-10" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Fraud Contest&lt;br&gt;Skill&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="570.55" y="369" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-11" value="User Prompt&lt;br&gt;asking about a fraud that happened" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;base=20;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="300" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-12" value="&lt;b&gt;Transaction&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="221" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-13" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;flipH=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="90" y="150" width="20" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-14" value="&lt;b&gt;User Prompt&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="165" y="221" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-15" value="" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="280" as="sourcePoint" />
+            <mxPoint x="540" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-16" value="" style="sketch=0;html=1;aspect=fixed;strokeColor=none;shadow=0;align=center;fillColor=#2D9C5E;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;shape=mxgraph.gcp2.check" vertex="1" parent="1">
+          <mxGeometry x="460" y="273.2" width="46" height="36.8" as="geometry" />
+        </mxCell>
+        <mxCell id="24hQ4ILrmWJlg6kaS-Ij-18" value="&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Trigger Failure Test&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="265" y="419" width="170" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

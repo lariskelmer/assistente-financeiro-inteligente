@@ -1,0 +1,30 @@
+transaction_id,timestamp,amount,currency,merchant_name,merchant_category,location_city,location_country,terminal_type,vpn_detected,device_fingerprint,is_fraud
+tx_h_alex_01,2026-05-15T10:00:00Z,15.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_h_alex_02,2026-05-16T12:00:00Z,35.4,USD,Uber Eats,FOOD_DELIVERY,Seattle,US,ONLINE,False,iph_app_442,False
+tx_h_alex_03,2026-05-18T19:22:00Z,120.0,USD,Amazon.com,E_COMMERCE,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_h_alex_04,2026-05-20T14:15:00Z,8.5,USD,Spotify US,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_h_alex_05,2026-05-22T21:00:00Z,45.0,USD,Steam Games,DIGITAL_GOODS,Seattle,US,ONLINE,True,mac_safari_991,False
+tx_h_alex_06,2026-05-25T11:30:00Z,22.1,USD,DoorDash,FOOD_DELIVERY,Seattle,US,ONLINE,False,iph_app_442,False
+tx_h_alex_07,2026-05-28T09:00:00Z,250.0,USD,AWS Cloud Services,SAAS,Seattle,US,ONLINE,True,mac_safari_991,False
+tx_h_alex_08,2026-06-01T15:00:00Z,14.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_h_alex_09,2026-06-05T18:45:00Z,62.3,USD,Uber Eats,FOOD_DELIVERY,Seattle,US,ONLINE,False,iph_app_442,False
+tx_h_alex_10,2026-06-10T13:12:00Z,110.0,USD,Amazon.com,E_COMMERCE,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_h_alex_99,2026-06-12T03:00:00Z,1850.0,USD,CryptoExchange,FINANCIAL,Kiev,UA,ONLINE,False,unknown_linux_00,True
+tx_alex_01,2026-06-20T08:12:00Z,14.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_01,2026-06-20T08:12:00Z,14.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_01,2026-06-20T08:12:00Z,14.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_01,2026-06-20T08:12:00Z,14.99,USD,Netflix Inc,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_02,2026-06-20T12:30:00Z,42.5,USD,Uber Eats,FOOD_DELIVERY,Seattle,US,ONLINE,False,iph_app_442,False
+tx_alex_03,2026-06-21T18:45:00Z,59.99,USD,Steam Games,DIGITAL_GOODS,Seattle,US,ONLINE,True,mac_safari_991,False
+tx_alex_04,2026-06-22T02:10:00Z,8.5,USD,Spotify US,STREAMING,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_05,2026-06-22T10:15:00Z,124.99,USD,Amazon.com,E_COMMERCE,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_06,2026-06-23T15:00:00Z,35.0,USD,GitHub Inc,SAAS,San Francisco,US,ONLINE,False,mac_safari_991,False
+tx_alex_07,2026-06-23T19:30:00Z,18.25,USD,DoorDash,FOOD_DELIVERY,Seattle,US,ONLINE,False,iph_app_442,False
+tx_alex_08,2026-06-24T09:00:00Z,250.0,USD,AWS Cloud Services,SAAS,Seattle,US,ONLINE,True,mac_safari_991,False
+tx_alex_09,2026-06-24T22:11:00Z,15.4,USD,Uber Trip,TRANSPORTATION,Seattle,US,ONLINE,False,iph_app_442,False
+tx_alex_10,2026-06-25T14:20:00Z,89.0,USD,BestBuy.com,ELECTRONICS,Seattle,US,ONLINE,False,mac_safari_991,False
+tx_alex_11_f,2026-06-25T14:45:00Z,1299.0,USD,Apple Store,ELECTRONICS,Miami,US,EMV_FALLBACK,False,none,True
+tx_alex_12_f,2026-06-26T01:05:00Z,1.0,USD,Charity Donates,NON_PROFIT,Unknown,RU,ONLINE,False,unk_linux_883,True
+tx_alex_13_f,2026-06-26T01:07:00Z,2450.0,USD,Newegg.com,ELECTRONICS,Los Angeles,US,ONLINE,False,win_chrome_104,True
+tx_alex_14_f,2026-06-27T03:15:00Z,500.0,USD,BitRefill,FINANCIAL,Chicago,US,ONLINE,False,mac_chrome_002,True
+tx_alex_15_f,2026-06-27T19:40:00Z,200.0,USD,RazorGold,DIGITAL_GOODS,Phoenix,US,ONLINE,True,android_app_661,True

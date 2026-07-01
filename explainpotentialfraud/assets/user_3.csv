@@ -1,0 +1,12 @@
+transaction_id,timestamp,amount,currency,merchant_name,merchant_category,location_city,location_country,terminal_type,vpn_detected,device_fingerprint,is_fraud
+tx_h_clara_01,2026-05-02T10:15:00Z,142.30,USD,H-E-B Grocery,GROCERY,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_02,2026-05-04T14:00:00Z,22.50,USD,CVS Pharmacy,PHARMACY,Austin,US,POS_TAP,false,none,false
+tx_h_clara_03,2026-05-07T11:30:00Z,64.00,USD,Target.com,E_COMMERCE,Austin,US,ONLINE,false,iph_app_clara,false
+tx_h_clara_04,2026-05-10T16:45:00Z,41.22,USD,Shell Oil,GAS_STATION,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_05,2026-05-15T09:00:00Z,215.80,USD,Costco Wholesale,GROCERY,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_06,2026-05-18T12:00:00Z,11.40,USD,Starbucks,RESTAURANT,Austin,US,POS_TAP,false,none,false
+tx_h_clara_07,2026-05-22T15:30:00Z,48.00,USD,Carter's Kids,CLOTHING,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_08,2026-05-25T10:00:00Z,95.00,USD,Target.com,E_COMMERCE,Austin,US,ONLINE,false,iph_app_clara,false
+tx_h_clara_09,2026-05-29T14:15:00Z,189.00,USD,H-E-B Grocery,GROCERY,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_10,2026-06-03T11:00:00Z,35.00,USD,Austin Pediatrics,MEDICAL,Austin,US,POS_CHIP,false,none,false
+tx_h_clara_99,2026-06-07T01:45:00Z,450.00,USD,Steam Games,DIGITAL_GOODS,Unknown,US,ONLINE,true,win_chrome_xyz,true

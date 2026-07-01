@@ -1,0 +1,12 @@
+transaction_id,timestamp,amount,currency,merchant_name,merchant_category,location_city,location_country,terminal_type,vpn_detected,device_fingerprint,is_fraud
+tx_h_david_01,2026-06-01T07:45:00Z,6.80,USD,Starbucks #441,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_02,2026-06-01T12:30:00Z,14.50,USD,Boston Salads,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_03,2026-06-02T07:45:00Z,6.80,USD,Starbucks #441,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_04,2026-06-02T12:40:00Z,15.20,USD,Boston Salads,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_05,2026-06-03T07:44:00Z,7.20,USD,Starbucks #441,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_06,2026-06-03T18:00:00Z,45.00,USD,Shell Oil Boston,GAS_STATION,Boston,US,POS_CHIP,false,none,false
+tx_h_david_07,2026-06-04T07:45:00Z,6.80,USD,Starbucks #441,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_08,2026-06-04T12:35:00Z,14.90,USD,Boston Salads,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_09,2026-06-05T07:46:00Z,6.80,USD,Starbucks #441,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_10,2026-06-05T13:00:00Z,16.00,USD,Boston Salads,RESTAURANT,Boston,US,POS_TAP,false,none,false
+tx_h_david_99,2026-06-07T19:00:00Z,550.00,USD,Walmart.com,E_COMMERCE,Unknown,US,ONLINE,false,win_saf_91,true
