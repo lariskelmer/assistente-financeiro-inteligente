@@ -1,6 +1,4 @@
-import json
 import os
-import pandas as pd
 import asyncio
 from dotenv import load_dotenv
 from google.adk.runners import InMemoryRunner
@@ -117,20 +115,22 @@ async def main():
             # 4. Send the input to the agent and await the response
             # Note: Depending on your specific ADK version, runner.run() or runner.run_debug() 
             # maintains conversational state across sequential calls.
+            print("\n⏳ Analyzing...", flush=True)
             agent_response = await runner.run_debug(user_prompt, quiet=True)
-            
-            # 2. Grab the final model event (the last element in the event stream)
-            final_event = agent_response[-1]
-            
-            # 3. Extract the text parts safely from the message content
-            if hasattr(final_event, 'content') and final_event.content.parts:
-                # Filter and join only the text segments from the part array
-                text_response = "".join(
-                    part.text for part in final_event.content.parts if hasattr(part, 'text') and part.text
+
+            printed_any = False
+            for event in agent_response:
+                if not (hasattr(event, 'content') and event.content and event.content.parts):
+                    continue
+                text = "".join(
+                    part.text for part in event.content.parts
+                    if hasattr(part, 'text') and part.text
                 )
-                print(f"\nAgent: {text_response}")
-            else:
-                print(f"\nAgent: [No text response returned]")
+                if text.strip():
+                    print(f"\nAgent: {text}")
+                    printed_any = True
+            if not printed_any:
+                print("\nAgent: [No text response returned]")
             
         except Exception as e:
             print(f"\nAn error occurred: {e}")    
