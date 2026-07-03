@@ -9,6 +9,7 @@ metadata:
 ## When to use
 - When the user inquiries about the safety classification, block status, or non-detection of fraud on a specific historical transaction.
 - When the user explicitly requests to review or dispute a charge they believe is fraudulent.
+- **Automatically, as part of the internal fraud detection pipeline:** when `detectingfraud` returns a SUSPICIOUS verdict, call this skill to produce a detailed audit of which behavioral rules were violated before handing off to `analyzecontext`. In this case, output the audit as a structured explanation (do NOT delete the transaction — it has not been confirmed as fraud yet).
 
 ## When NOT to use
 - Do not use for creating, staging, or executing new financial transactions.
