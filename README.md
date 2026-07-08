@@ -213,5 +213,10 @@ O arquivo `data/log_transactions.json` contém 4 perfis sintéticos, cada um com
 
 ---
 
+## Vídeos
+1. https://www.loom.com/share/75382f47987d4caf93fdb431f3d369a0
+2. https://www.loom.com/share/5913cf2b237d4de9a2c05a3241aa7d9b
+3. https://drive.google.com/file/d/1PZRo-wHfmA--eyN2hLsRT005HFQsKrgc/view?usp=drive_link
+
 > Disciplina: Tópicos Especiais em Redes — PPGEEC/UFRN
 > Orientador: Prof. Dr. Ivanovitch Silva
